@@ -7,14 +7,25 @@ use App\Models\Product;
 
 class ProductController extends Controller
 {
+    
+    function __construct(){
+        $this->middleware('auth');
+    }
+
     function show(){
 
         $products = Product::all();
         return view('product/list', ['products'=>$products]);
     }
 
-    function form(){
-        return view('product/form');
+    function form($id=null){
+
+        $product = new Product();
+        if($id!=null){
+            $product = Product::findOrFail($id);
+        }
+
+        return view('product/form', ['product'=> $product]);
     }
 
     function save(Request $request){
@@ -29,6 +40,9 @@ class ProductController extends Controller
         ]);
 
         $product = new product();
+        if($request->id >0){
+            $product = Product::findOrFail($request->id);
+        }
         $product->name = $request->name;
         $product->cost = $request->cost;
         $product->price = $request->price;
@@ -37,7 +51,7 @@ class ProductController extends Controller
 
         $product->save();
 
-        return redirect('/products');
+        return redirect('/products')->with('message', 'Producto guardado');
 
     }
 
@@ -48,6 +62,6 @@ class ProductController extends Controller
 
         //Product::destroy([id1, id2])
 
-        return redirect('/products');
+        return redirect('/products')->with('message', 'Producto Eliminado');
     }
 }

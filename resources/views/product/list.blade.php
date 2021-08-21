@@ -9,7 +9,12 @@
             <a href="{{ route('product.form') }}" class="btn btn-primary">Nuevo producto</a>
         </div>
     </div>
-
+    @if (Session::has('message'))
+        <p class="alert alert-success">
+            {{ Session::get('message') }}
+        </p>
+        
+    @endif
     <table class="table table-striped table-hover">
         <thead>
             <tr>
@@ -30,7 +35,7 @@
                     <td>{{ $product->quantity }}</td>
                     <td>{{ $product->brand }}</td>
                     <td>
-                        <a class="btn btn-warning" href="#">editar</a>
+                        <a class="btn btn-warning" href="{{ route('product.form', ['id'=>$product->id]) }}">editar</a>
                         <a class="btn btn-danger"" href="{{ route('product.delete', ['id'=>$product->id]) }}">eliminar</a>
                     </td>
                 </tr>
