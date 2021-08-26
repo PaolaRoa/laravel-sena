@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\PersonaController;
 use App\Http\Controllers\ProductController;
+use App\Http\Controllers\BrandController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -26,6 +27,8 @@ Route::get('/', function () {
 Route::get('/usuario/{nombre_usuario?}', [PersonaController::class,'mostrar'])->where('nombre_usuario', '[A-Za-z]+');
 
 Route::get('/products', [ProductController::class, 'show']);
+
+Route::get('/brands', [BrandController::class, 'show']);
 
 Route::get('/product/form/{id?}', [ProductController::class, 'form'])->name('product.form');
 
