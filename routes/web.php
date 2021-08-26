@@ -16,7 +16,7 @@ use App\Http\Controllers\ProductController;
 
 Route::get('/', function () {
     return view('welcome');
-});
+})->middleware('auth');
 
 // Route::get('/usuario', function(){
 //     return "hola"; 
