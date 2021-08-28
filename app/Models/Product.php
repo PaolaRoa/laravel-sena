@@ -10,4 +10,8 @@ class Product extends Model
     use HasFactory;
     //si tabla tiene nombre diferente a products
     //protected $table = 'productos'
+
+    function brand(){
+        return $this->belongsTo(Brand::class);
+    }
 }

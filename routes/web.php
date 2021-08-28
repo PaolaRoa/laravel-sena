@@ -33,7 +33,6 @@ Route::get('/product/form/{id?}', [ProductController::class, 'form'])->name('pro
 Route::post('/product/save',[ProductController::class, 'save'])->name('product.save');
 
 Route::get('/product/delete/{id}',[ProductController::class, 'delete'])->name('product.delete');
-Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
@@ -43,5 +42,7 @@ Route::get('/brand/form/{id?}', [BrandController::class, 'form'])->name('brand.f
 
 Route::get('/brand/delete/{id}',[BrandController::class, 'delete'])->name('brand.delete');
 
-Route::post('/product/save',[BrandController::class, 'save'])->name('brand.save');
+Route::post('/brand/save',[BrandController::class, 'save'])->name('brand.save');
+
+Auth::routes();
 
