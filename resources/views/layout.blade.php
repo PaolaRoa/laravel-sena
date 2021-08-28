@@ -90,6 +90,12 @@
                                  Products
                              </a>
                          </li>
+                         <li class="nav-item">
+                            <a class="nav-link" href="/brands">
+                                <span data-feather="shopping-cart"></span>
+                                Brands
+                            </a>
+                        </li>
                      </ul>
                  </div>
              </nav>
