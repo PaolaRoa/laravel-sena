@@ -28,8 +28,6 @@ Route::get('/usuario/{nombre_usuario?}', [PersonaController::class,'mostrar'])->
 
 Route::get('/products', [ProductController::class, 'show']);
 
-Route::get('/brands', [BrandController::class, 'show']);
-
 Route::get('/product/form/{id?}', [ProductController::class, 'form'])->name('product.form');
 
 Route::post('/product/save',[ProductController::class, 'save'])->name('product.save');
@@ -38,3 +36,12 @@ Route::get('/product/delete/{id}',[ProductController::class, 'delete'])->name('p
 Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+
+Route::get('/brands', [BrandController::class, 'show']);
+
+Route::get('/brand/form/{id?}', [BrandController::class, 'form'])->name('brand.form');
+
+Route::get('/brand/delete/{id}',[BrandController::class, 'delete'])->name('brand.delete');
+
+Route::post('/product/save',[BrandController::class, 'save'])->name('brand.save');
+

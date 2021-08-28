@@ -6,7 +6,7 @@
     <div class="row">
         <div class="col-sm-10"></div>
         <div class="col-sm-2">
-            <a href="{{ route('product.form') }}" class="btn btn-primary">Nueva Marca</a>
+            <a href="{{ route('brand.form') }}" class="btn btn-primary">Nueva Marca</a>
         </div>
     </div>
     @if (Session::has('message'))
@@ -27,8 +27,8 @@
                 <tr>
                     <td>{{ $brand->name }}</td>
                     <td>
-                        <a class="btn btn-warning" href="#">editar</a>
-                        <a class="btn btn-danger"" href="#">eliminar</a>
+                        <a class="btn btn-warning" href="{{ route('brand.form', ['id'=>$brand->id] )}}">editar</a>
+                        <a class="btn btn-danger"" href="{{ route('brand.delete', ['id'=>$brand->id]) }}">eliminar</a>
                     </td>
                 </tr>
             @endforeach
