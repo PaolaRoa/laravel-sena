@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\PersonaController;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\BrandController;
+use App\Http\Controllers\CategoryController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -43,6 +44,12 @@ Route::get('/brand/form/{id?}', [BrandController::class, 'form'])->name('brand.f
 Route::get('/brand/delete/{id}',[BrandController::class, 'delete'])->name('brand.delete');
 
 Route::post('/brand/save',[BrandController::class, 'save'])->name('brand.save');
+
+Route::get('/categories', [CategoryController::class, 'show']);
+
+Route::get('/category/form/{id?}', [CategoryController::class, 'form'])->name('category.form');
+
+Route::post('/category/save',[CategoryController::class, 'save'])->name('category.save');
 
 Auth::routes();
 

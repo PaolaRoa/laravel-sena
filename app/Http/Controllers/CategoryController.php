@@ -19,14 +19,14 @@ class CategoryController extends Controller
         return view('category/list', ['categories'=>$categories]);
     }
 
-    // function form($id=null){
-    //     $brand = new Brand();
-    //     if($id!=null){
-    //         $brand = Brand::findOrFail($id);
-    //     }
-    //     return view('brand/form', ['brand'=>$brand]);
+    function form($id=null){
+        $category = new Category();
+        if($id!=null){
+            $category = Category::findOrFail($id);
+        }
+        return view('category/form', ['category'=>$category]);
 
-    // }
+    }
 
     // function delete($id){
     //     $brand = Brand::findOrFail($id);
@@ -36,22 +36,24 @@ class CategoryController extends Controller
 
     // }
 
-    // function save(Request $request){
+    function save(Request $request){
 
-    //     $request->validate(
-    //         [
-    //             "name"=>'required|max:50',
-    //         ]
-    //         );
+        $request->validate(
+            [
+                "name"=>'required|max:50',
+                "description"=>'required|max:200'
+            ]
+            );
         
-    //     $brand = new Brand();
-    //     if($request->id>0){
-    //         $brand = Brand::findOrFail($request->id);
-    //     }
-    //     $brand->name = $request->name; 
+        $category = new Category();
+        if($request->id>0){
+            $category = Category::findOrFail($request->id);
+        }
+        $category->name = $request->name;
+        $category->description = $request->description;  
 
-    //     $brand->save();
+        $category->save();
 
-    //     return redirect('/brands')->with('message', 'Marca guardada');
-    // }
+        return redirect('/categories')->with('message', 'Categoria guardada');
+    }
 }
