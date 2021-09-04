@@ -19,12 +19,12 @@ class CreateProductsTable extends Migration
             $table->double('cost',10,2);
             $table->double('price',10,2);
             $table->integer('quantity');
-            $table->foreignId('brand_id',50);
-            $table->foreignId('category_id', 50);
+            $table->foreignId('brand_id',50)->nullable();
+            $table->foreignId('category_id', 50)->nullable();
             $table->timestamps();
 
-            $table->foreign('brand_id')->references('id')->on('brands');
-            $table->foreign('category_id')->references('id')->on('categories');
+            $table->foreign('brand_id')->references('id')->on('brands')->onDelete('set null');
+            $table->foreign('category_id')->references('id')->on('categories')->onDelete('set null');
         });
     }
 

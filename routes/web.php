@@ -51,5 +51,7 @@ Route::get('/category/form/{id?}', [CategoryController::class, 'form'])->name('c
 
 Route::post('/category/save',[CategoryController::class, 'save'])->name('category.save');
 
+Route::get('/category/delete/{id}',[CategoryController::class, 'delete'])->name('category.delete');
+
 Auth::routes();
 

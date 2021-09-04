@@ -28,8 +28,8 @@
                     <td>{{ $c->name }}</td>
                     <td>{{ $c->description }}</td>
                     <td>
-                        <a class="btn btn-warning" href="{{ route('brand.form', ['id'=>$c->id] )}}">editar</a>
-                        <a class="btn btn-danger"" href="{{ route('brand.delete', ['id'=>$c->id]) }}">eliminar</a>
+                        <a class="btn btn-warning" href="{{ route('category.form', ['id'=>$c->id] )}}">editar</a>
+                        <a class="btn btn-danger"" href="{{ route('category.delete', ['id'=>$c->id]) }}">eliminar</a>
                     </td>
                 </tr>
             @endforeach

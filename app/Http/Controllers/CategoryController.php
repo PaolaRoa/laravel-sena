@@ -28,13 +28,13 @@ class CategoryController extends Controller
 
     }
 
-    // function delete($id){
-    //     $brand = Brand::findOrFail($id);
-    //     $brand->delete();
+    function delete($id){
+        $category = Category::findOrFail($id);
+        $category->delete();
 
-    //     return redirect('/brands')->with('message', 'Marca Eliminada');
+        return redirect('/categories')->with('message', 'Categoria Eliminada');
 
-    // }
+    }
 
     function save(Request $request){
 
