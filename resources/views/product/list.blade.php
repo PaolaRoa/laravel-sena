@@ -23,6 +23,7 @@
                 <th>Price</th>
                 <th>Quantity</th>
                 <th>Brand</th>
+                <th>Category</th>
                 <th></th>
             </tr>
         </thead>
@@ -33,7 +34,8 @@
                     <td>{{ $product->cost }}</td>
                     <td>{{ $product->price }}</td>
                     <td>{{ $product->quantity }}</td>
-                    <td>{{ $product->brand->name }}</td>
+                    <td>{{ $product->brand!=null?$product->brand->name:'' }}</td>
+                    <td>{{ $product->category!=null?$product->category->name:'' }}</td>
                     <td>
                         <a class="btn btn-warning" href="{{ route('product.form', ['id'=>$product->id]) }}">editar</a>
                         <a class="btn btn-danger"" href="{{ route('product.delete', ['id'=>$product->id]) }}">eliminar</a>
