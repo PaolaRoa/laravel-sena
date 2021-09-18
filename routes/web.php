@@ -5,6 +5,7 @@ use App\Http\Controllers\PersonaController;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\BrandController;
 use App\Http\Controllers\CategoryController;
+use App\Http\Controllers\InvoiceController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -52,6 +53,8 @@ Route::get('/category/form/{id?}', [CategoryController::class, 'form'])->name('c
 Route::post('/category/save',[CategoryController::class, 'save'])->name('category.save');
 
 Route::get('/category/delete/{id}',[CategoryController::class, 'delete'])->name('category.delete');
+
+Route:get('/invoices')
 
 Auth::routes();
 
